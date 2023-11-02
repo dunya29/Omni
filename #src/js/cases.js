@@ -68,8 +68,6 @@ function openModal(modal) {
 // unshow modal
 function closeModal(modal) {
   modal.classList.remove("open")
-  document.querySelector(".modal .btn-main").style.opacity = 0
-  document.querySelector(".modal .btn-main").style.visibility = "hidden"
   setTimeout(() => {
     modal.querySelector('.modal__inner').innerHTML = ""
     enableScroll()
@@ -108,8 +106,8 @@ function changeUrl(item) {
          </g>
        
        </svg></div>` 
-       document.querySelector(".modal .btn-main").style.opacity = 0
-       document.querySelector(".modal .btn-main").style.visibility = "hidden"
+       document.querySelector(".fancy-modal .btn-main").style.opacity = 0
+       document.querySelector(".fancy-modal .btn-main").style.visibility = "hidden"
     fetch(href)
       .then(response => {
         if (response.ok) {
@@ -121,8 +119,8 @@ function changeUrl(item) {
         let doc = (new window.DOMParser()).parseFromString(res, "text/html")
         document.title = doc.title
         document.querySelector('.fancy-modal .modal__inner').innerHTML = doc.querySelector(".case__content").innerHTML
-        document.querySelector(".modal .btn-main").style.opacity = 1
-        document.querySelector(".modal .btn-main").style.visibility = "visible"
+        document.querySelector(".fancy-modal .btn-main").style.opacity = 1
+        document.querySelector(".fancy-modal .btn-main").style.visibility = "visible"
        // openModal(document.querySelector('.fancy-modal'))
         window.history.pushState("", "", href)
         let modal = document.querySelector(".fancy-modal")
@@ -140,10 +138,12 @@ function changeUrl(item) {
           let lazyImages = modal.querySelectorAll(".lazy")
           loadImg(lazyImages, j)
         }
-        document.querySelector(".modal").addEventListener("click", e => {
+        document.querySelector(".fancy-modal").addEventListener("click", e => {
           if (e.target.classList.contains("modal__overlay") || e.target.classList.contains("modal__close")) {
             document.title = title
             window.history.replaceState("", "", url)
+            document.querySelector(".fancy-modal .btn-main").style.opacity = 0
+            document.querySelector(".fancy-modal .btn-main").style.visibility = "hidden"
             closeModal(document.querySelector(".fancy-modal"))
           }
         })
@@ -154,6 +154,16 @@ function changeUrl(item) {
       });
   }
   fetchPage(item)
+}
+let successPopup = document.querySelector(".success-popup")
+function formSuccess(form) {
+  let current = document.querySelector(".popup.active")
+  if (current) {
+    successPopup.classList.add("active")
+    setTimeout(() => {
+      current.classList.remove("active")
+    }, 300);
+  }
 }
 window.addEventListener("load", () => {
   if (document.querySelector(".works-card")) {
@@ -182,17 +192,8 @@ window.addEventListener("load", () => {
       1500
     );
   });
-  if (document.querySelector(".modal__overlay")) {
-    let lastScroll = 0;
-    const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
-    const containHide = () => document.querySelector(".modal__close").classList.contains('hide');
+  if (document.querySelector(".modal .js-pageup")) {
     document.querySelector(".modal__overlay").addEventListener("scroll", () => {
-      if (scrollPosition() > lastScroll && !containHide() && scrollPosition() > 10) {
-        document.querySelector(".modal__close").classList.add('hide');
-      } else if (scrollPosition() < lastScroll && containHide()) {
-        document.querySelector(".modal__close").classList.remove('hide');
-      }
-      lastScroll = scrollPosition();
       if (document.querySelector(".modal__overlay").scrollTop > 400) {
         document.querySelector(".js-pageup").classList.add("show")
       } else {

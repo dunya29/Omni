@@ -1,3 +1,21 @@
+function enableScroll() {
+  if (document.querySelectorAll('.fixed-block')) {
+    document.querySelectorAll('.fixed-block').forEach(block => block.style.paddingRight = '0px')
+  }
+  document.body.style.paddingRight = '0px'
+  document.querySelector('.footer').style.right = '0px'
+  document.body.classList.remove("noscroll")
+}
+//disable scroll
+function disableScroll() {
+  let paddingValue = window.innerWidth > 325 ? window.innerWidth - document.documentElement.clientWidth + 'px' : 0
+  if (document.querySelectorAll('.fixed-block')) {
+    document.querySelectorAll('.fixed-block').forEach(block => block.style.paddingRight = paddingValue)
+  }
+  document.body.style.paddingRight = paddingValue
+  document.querySelector('.footer').style.right = paddingValue
+  document.body.classList.add("noscroll");
+}
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
@@ -221,7 +239,8 @@
           el.classList.add('active');
         }
         currentPopup.classList.add('active');
-        document.body.classList.add('noscroll');
+        //document.body.classList.add('noscroll');
+        disableScroll()
         if (popupClients.classList.contains('active')) {
           setTimeout(animateCards(popupClientsCards), 300);
         }
@@ -236,13 +255,23 @@
         document.body.classList.add('noscroll');
       } else {
         document.body.classList.remove('noscroll');
+        console.log("hhh")
       }
     });
     allClosePopupBtns.forEach(closePopupBtn => {
       closePopupBtn.addEventListener('click', () => {
         allPopups.forEach(popup => {
           popup.classList.remove('active');
-          document.body.classList.remove('noscroll');
+          let animSpd 
+          if (document.querySelector(".popup-req.active")) {
+            animSpd = 800
+          } else {
+            animSpd = 300
+          }
+          setTimeout(() => {
+            enableScroll()
+          }, animSpd);
+          //document.body.classList.remove('noscroll');
         });
         if (popupClientsCards) {
           setTimeout(popupClientsCards.classList.remove('active'), 1000);

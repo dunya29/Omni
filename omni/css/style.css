@@ -88,6 +88,45 @@ video {
   font-size: 20px;
 }
 
+.case__header .case-text__disc a {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.case__header .case-text__disc a:hover::before {
+  opacity: 1;
+}
+
+.case__header .case-text__disc a:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  opacity: 0;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.case__header .case-text__disc a:after {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background: url(../img/svg/more.svg) center/16px no-repeat;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+}
+
 .image-lazy {
   width: 100%;
 }
@@ -328,6 +367,49 @@ video {
   transition: all 0.3s ease;
 }
 
+.double-title {
+  position: relative;
+}
+
+.popup-body {
+  padding: 100px 0 80px;
+}
+
+.popup-req {
+  overflow-y: auto;
+}
+
+.popup.success-popup {
+  background: url(../img/svg/success-bg.svg) center/cover no-repeat, #fff;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transform: translateY(30px);
+  -ms-transform: translateY(30px);
+  transform: translateY(30px);
+}
+
+.popup.success-popup.active {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.popup.success-popup .popup-body {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.popup.success-popup p {
+  font-size: 44px;
+  font-weight: 600;
+  margin: 32px 0;
+}
+
 @media (max-width: 1830px) {
   .modal .btn-main {
     bottom: 40px;
@@ -367,11 +449,25 @@ video {
   .modal .case-cards {
     padding-top: 120px;
   }
+
+  .double-title svg {
+    width: auto;
+    height: 78px;
+  }
+
+  .popup.success-popup p {
+    font-size: 32px;
+    margin: 23px 0;
+  }
 }
 
 @media (max-width: 639px) {
   .footer {
     padding-top: clamp(620px, 620px + 100 * (100vw - 320px) / 320, 720px);
+  }
+
+  .case__header .case-text__disc a:after {
+    background-size: 13px;
   }
 
   .case__header .case-text__disc {
@@ -407,5 +503,14 @@ video {
     width: 36px;
     height: 36px;
     stroke: #fff;
+  }
+
+  .double-title svg {
+    height: 60px;
+  }
+
+  .popup.success-popup p {
+    font-size: 24px;
+    margin: 15px 0;
   }
 }
