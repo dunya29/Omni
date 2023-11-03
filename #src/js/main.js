@@ -261,13 +261,13 @@ function disableScroll() {
     allClosePopupBtns.forEach(closePopupBtn => {
       closePopupBtn.addEventListener('click', () => {
         allPopups.forEach(popup => {
-          popup.classList.remove('active');
           let animSpd 
           if (document.querySelector(".popup-req.active")) {
             animSpd = 800
           } else {
             animSpd = 300
           }
+          popup.classList.remove('active');
           setTimeout(() => {
             enableScroll()
           }, animSpd);
