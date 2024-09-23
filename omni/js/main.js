@@ -25,7 +25,7 @@ if (header) {
   const containHide = () => header.classList.contains('hide');
   const menuMobile = document.querySelector('.header-mobile-menu');
   window.addEventListener('scroll', () => {
-    if (!menuMobile.classList.contains('menu--active')) {
+    if (menuMobile && !menuMobile.classList.contains('menu--active')) {
         if (scrollPosition() > lastScroll && !containHide() && scrollPosition() > 10) {
           //scroll down
           header.classList.add('hide');
@@ -512,3 +512,25 @@ new Swiper('.staff-slider', {
         },
     }
 })
+//password
+const itemFormPass = document.querySelectorAll(".item-form--password")
+if (itemFormPass) {
+  itemFormPass.forEach(item => {
+    item.querySelector("input").addEventListener("input", () => {
+      if (item.querySelector("input").value.length > 0) {
+        item.classList.add("show-eyeBtn")
+      } else {
+        item.querySelector("input").type = "password"
+        item.classList.remove("show-eyeBtn","show-password")
+      }
+    })
+    item.querySelector(".item-form__eye").addEventListener("click", () => {
+      item.classList.toggle("show-password")
+      if (item.classList.contains("show-password")) {
+        item.querySelector("input").type = "text"
+      } else {
+        item.querySelector("input").type = "password"
+      }
+    })
+  })
+}
