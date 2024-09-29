@@ -1,0 +1,65 @@
+<!--item-story-->
+<div class="item-story" data-watched="@@nmb">
+    <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" fill="none" class="item-story__bg">
+        <rect x="3" y="3" width="294" height="394" stroke="url(#paint0_linear_10_13)" rx="50" class="item-story__bg-path"></rect>
+        <defs>
+            <linearGradient id="paint0_linear_10_13" x1="150" y1="0" x2="150" y2="400" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#F5EC56"/>
+            <stop offset="0.520323" stop-color="#EEC851"/>
+            <stop offset="1" stop-color="#EAB149"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    @@if(story == 1) {
+    <div class="media-cover">
+        <img src="img/pages/stories/story-1.jpg" alt="">
+    </div>
+    <div class="item-story__content">
+        <h5 class="page-txt">@@title</h5>
+    </div>
+    <div class="item-story__mod"> 
+        <div class="item-story__mod-content">
+            <h5 class="page-txt">@@title</h5>
+        </div>
+        <div class="swiper ">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img class="item-story__story" data-src="img/pages/stories/story-1-1.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item-story__story" data-src="img/pages/stories/story-1-2.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item-story__story" data-src="img/pages/stories/story-1-3.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item-story__story" data-src="img/pages/stories/story-1-4.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item-story__story" data-src="img/pages/stories/story-1-5.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item-story__story" data-src="img/pages/stories/story-1-6.jpg" alt=""></div>
+                <div class="swiper-slide"><img class="item-story__story" data-src="img/pages/stories/story-1-7.jpg" alt=""></div>
+            </div>
+        </div>                 
+    </div>
+    }
+    @@if (story == 2) {
+    <div class="media-cover">
+        <img src="img/pages/stories/story-2.jpg" alt="">
+    </div>
+    <div class="item-story__content">
+        <h5 class="page-txt">@@title</h5>
+    </div>
+    <div class="item-story__mod">
+        <img class="item-story__story" data-src="img/pages/stories/story-2-1.jpg" alt="">                  
+        <img class="item-story__story" data-src="img/pages/stories/story-2-2.jpg" alt="">
+        <img class="item-story__story" data-src="img/pages/stories/story-2-3.jpg" alt="">
+        <img class="item-story__story" data-src="img/pages/stories/story-2-4.jpg" alt="">
+    </div>
+    }
+    @@if (story == 3) {
+        <div class="media-cover">
+            <img src="img/pages/stories/story-3.jpg" alt="">
+        </div>
+        <div class="item-story__content">
+            <h5 class="page-txt">@@title</h5>
+        </div>
+        <div class="item-story__mod">
+            <video class="item-story__story" playsinline loop>
+                <source data-src="../media/swiss.webm" type="video/webm">
+                <source data-src="../media/swiss.mp4" type="video/mp4">
+            </video>                       
+        </div>
+    }
+</div>
