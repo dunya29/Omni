@@ -308,14 +308,11 @@ if (stories && story.length > 0) {
                 }
 
                 storyModal.querySelectorAll(".media-cover").forEach(item => {
-                    item.addEventListener("click", e => { 
-                        console.log(e.x)                
-                        if (window.innerWidth < 768) {
-                            if (window.innerWidth / 2 < e.x) {
-                                next()
-                            } else {
-                                prev()
-                            }
+                    item.addEventListener("click", e => {               
+                        if (window.innerWidth / 2 < e.x) {
+                            next()
+                        } else {
+                            prev()
                         }
                     })
                 }) 

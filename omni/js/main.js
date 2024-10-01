@@ -483,7 +483,9 @@ if (servicesSlider) {
 }
 
 
-new Swiper('.staff-slider', {
+const staffSlider = document.querySelector(".staff-slider")
+if (staffSlider) {
+  new Swiper('.staff-slider', {
     navigation: {
         nextEl: '.staff__arrow-right',
         prevEl: '.staff__arrow-left',
@@ -511,7 +513,8 @@ new Swiper('.staff-slider', {
             loop: true,
         },
     }
-})
+  })
+}
 //password
 const itemFormPass = document.querySelectorAll(".item-form--password")
 if (itemFormPass) {
