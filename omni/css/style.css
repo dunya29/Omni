@@ -795,7 +795,7 @@ h5,
 }
 
 .story-modal .media-cover {
-  background: url(../img/pages/stories/loading-icon.svg) center/32px 32px no-repeat, #000;
+  background: url(../img/icons/loading-icon.svg) center/32px 32px no-repeat, #000;
   position: absolute;
   top: 0;
   left: 0;
@@ -981,6 +981,12 @@ h5,
   height: 100%;
 }
 
+.marquee img {
+  height: 154px;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
 @media (min-width: 768.98px) {
   .story-modal .modal__close {
     width: 60px;
@@ -1041,6 +1047,11 @@ h5,
 
   .stories-p__items {
     gap: 40px 20px;
+  }
+
+  .marquee img {
+    height: 110px;
+    max-width: none;
   }
 }
 
@@ -1253,6 +1264,10 @@ h5,
 
   .stories {
     margin-top: 100px;
+  }
+
+  .marquee img {
+    height: calc(54px + 46 * (100vw - 320px) / 320);
   }
 }
 
