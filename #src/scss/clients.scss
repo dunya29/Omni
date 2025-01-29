@@ -403,7 +403,8 @@
             }
             @media (max-width: $bp3) {
                 padding-right: 0;
-                &:before,&:after {
+                &:before,
+                &:after {
                     content: none;
                 }
             }
@@ -563,6 +564,11 @@
         height: 700px;
         &__btn {
             padding: 20px 30px;
+        }
+    }
+    @media (pointer: coarse) {
+        canvas {
+            pointer-events: none;
         }
     }
 }

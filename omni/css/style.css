@@ -2308,3 +2308,9 @@ video {
     font-size: 20px;
   }
 }
+
+@media (pointer: coarse) {
+  .sv-matter canvas {
+    pointer-events: none;
+  }
+}
