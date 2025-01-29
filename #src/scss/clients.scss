@@ -538,6 +538,7 @@
         border: 3px solid #000;
         position: absolute;
         pointer-events: none;
+        top: -101%;
     }
     &__btn--color1 {
         background: #ffe457;
@@ -559,7 +560,7 @@
         }
     }
     @media (max-width: $bp5) {
-        height: 650px;
+        height: 700px;
         &__btn {
             padding: 20px 30px;
         }

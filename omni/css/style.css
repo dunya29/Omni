@@ -1492,6 +1492,7 @@ video {
   border: 3px solid #000;
   position: absolute;
   pointer-events: none;
+  top: -101%;
 }
 
 .sv-matter__btn--color1 {
@@ -2228,7 +2229,7 @@ video {
   }
 
   .sv-matter {
-    height: 650px;
+    height: 700px;
   }
 
   .sv-matter__btn {

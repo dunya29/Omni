@@ -159,33 +159,45 @@ class _c {
             })
     }
 }
-if (document.querySelector(".sv-matter")) {
-    const C = {
-        containerSelector: ".sv-matter",
-        elements: document.querySelectorAll(".sv-matter__btn"),
-        restitution: .4,
-        gravity: .2,
-        interactCallback: function (e) {
-            const t = ["btn--swap-color-1", "btn--swap-color-2", "btn--swap-color-3"];
-            document.querySelectorAll("[data-target^='button']").forEach((n => {
-                const r = n.getAttribute("data-target");
-                Matter.Events.on(e, "mousedown", (function () {
-                    const i = e.body?.label;
-                    i && i === r && (e => {
-                        const n = t.findIndex((t => e.classList.contains(t)));
-                        if (-1 !== n) {
-                            const r = (n + 1) % t.length;
-                            e.classList.remove(t[n]),
-                                e.classList.add(t[r])
+function matterAnimInit() {
+    let windowTop = window.pageYOffset || document.documentElement.scrollTop
+    let itemTop = document.querySelector(".sv-matter").getBoundingClientRect().top
+    let top = windowTop + itemTop
+    let itemPoint = Math.abs(window.innerHeight - document.querySelector(".sv-matter").offsetHeight * 0.5);
+    if (itemTop > 0 && (windowTop > top - itemPoint) && !document.querySelector(".sv-matter").classList.contains("animated")) {
+        const C = {
+            containerSelector: ".sv-matter",
+            elements: document.querySelectorAll(".sv-matter__btn"),
+            restitution: .4,
+            gravity: .2,
+            interactCallback: function (e) {
+                const t = ["btn--swap-color-1", "btn--swap-color-2", "btn--swap-color-3"];
+                document.querySelectorAll("[data-target^='button']").forEach((n => {
+                    const r = n.getAttribute("data-target");
+                    Matter.Events.on(e, "mousedown", (function () {
+                        const i = e.body?.label;
+                        i && i === r && (e => {
+                            const n = t.findIndex((t => e.classList.contains(t)));
+                            if (-1 !== n) {
+                                const r = (n + 1) % t.length;
+                                e.classList.remove(t[n]),
+                                    e.classList.add(t[r])
+                            }
                         }
+                        )(n)
                     }
-                    )(n)
+                    ))
                 }
                 ))
-            }
-            ))
-        },
-        updateCallback: function () { }
-    };
-    new _c(C)
-} 
+            },
+            updateCallback: function () { }
+        };
+        new _c(C)
+        document.querySelector(".sv-matter").classList.add("animated")
+    }
+}
+if (document.querySelector(".sv-matter")) {
+    matterAnimInit()
+    window.addEventListener("resize", matterAnimInit)
+    window.addEventListener("scroll", matterAnimInit)
+}
