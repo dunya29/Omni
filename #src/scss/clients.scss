@@ -557,7 +557,7 @@
     @media (max-width: $bp4) {
         height: 800px;
         canvas {
-            pointer-events: none;
+            pointer-events: none!important;
         }
     }
     @media (max-width: $bp5) {
@@ -568,7 +568,7 @@
     }
     @media (pointer: coarse) {
         canvas {
-            pointer-events: none;
+            pointer-events: none!important;
         }
     }
 }

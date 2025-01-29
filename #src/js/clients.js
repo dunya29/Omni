@@ -159,12 +159,14 @@ class _c {
             })
     }
 }
+let matterInterval
+const svMatter = document.querySelector(".sv-matter")
 function matterAnimInit() {
     let windowTop = window.pageYOffset || document.documentElement.scrollTop
-    let itemTop = document.querySelector(".sv-matter").getBoundingClientRect().top
+    let itemTop = svMatter.getBoundingClientRect().top
     let top = windowTop + itemTop
-    let itemPoint = Math.abs(window.innerHeight - document.querySelector(".sv-matter").offsetHeight * 0.5);
-    if (itemTop > 0 && (windowTop > top - itemPoint) && !document.querySelector(".sv-matter").classList.contains("animated")) {
+    let itemPoint = Math.abs(window.innerHeight - svMatter.offsetHeight * 0.5);
+    if (itemTop > 0 && (windowTop > top - itemPoint) && !svMatter.classList.contains("animated")) {
         const C = {
             containerSelector: ".sv-matter",
             elements: document.querySelectorAll(".sv-matter__btn"),
@@ -193,11 +195,18 @@ function matterAnimInit() {
             updateCallback: function () { }
         };
         new _c(C)
-        document.querySelector(".sv-matter").classList.add("animated")
+        svMatter.classList.add("animated")
     }
 }
-if (document.querySelector(".sv-matter")) {
+if (svMatter) {
     matterAnimInit()
     window.addEventListener("resize", matterAnimInit)
     window.addEventListener("scroll", matterAnimInit)
+    window.addEventListener("wheel", () =>{
+        clearInterval(matterInterval)
+        svMatter.style.pointerEvents = "none"
+        matterInterval = setInterval(() => {
+            svMatter.style.pointerEvents = null
+        }, 100);
+    });
 }

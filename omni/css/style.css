@@ -1934,7 +1934,7 @@ video {
   }
 
   .sv-matter canvas {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 }
 
@@ -2311,6 +2311,6 @@ video {
 
 @media (pointer: coarse) {
   .sv-matter canvas {
-    pointer-events: none;
+    pointer-events: none !important;
   }
 }
