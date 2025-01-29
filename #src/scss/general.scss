@@ -1,14 +1,17 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 button:focus,
 input:focus,
 textarea:focus {
-  outline: none;
+    outline: none;
 }
-input, textarea {
+input,
+textarea {
     font-family: inherit;
-  }
+}
 textarea {
     width: 100%;
     background: none;
@@ -19,11 +22,25 @@ textarea {
 textarea::-webkit-resizer {
     display: none;
 }
-html,body {
+html,
+body {
     scroll-behavior: smooth;
 }
 body {
     position: relative;
+}
+.marquee {
+    img {
+        height: 154px;
+        object-fit: contain;
+        @media (max-width: 1700px) {
+            height: 110px;
+            max-width: none;
+        }
+        @media (max-width: 639px) {
+            height: calc(54px + 46 * (100vw - 320px) / 320);
+        }
+    }
 }
 .header__body {
     align-items: center;
@@ -33,7 +50,7 @@ body {
     height: 92px;
     transition: padding 0s;
     @media (max-width: 960px) {
-    height: 84px;
+        height: 84px;
     }
 }
 .footer {
@@ -42,14 +59,14 @@ body {
     padding-top: 580px;
     z-index: 1;
     @media (max-width: 960px) {
-    padding-top: 720px;
+        padding-top: 720px;
     }
     @media (max-width: 639px) {
-    padding-top: clamp(620px,620px + (720 - 620) * ((100vw - 320px)/(640 - 320)),720px);
+        padding-top: clamp(620px, 620px + (720 - 620) * ((100vw - 320px)/ (640 - 320)), 720px);
     }
 }
 .page__inner {
-    padding-bottom: 0!important;
+    padding-bottom: 0 !important;
     position: relative;
     z-index: 10;
     background: #fff;
@@ -60,10 +77,10 @@ body {
         left: 0;
         right: 0;
         height: 50px;
-        background: #FFE457;
+        background: #ffe457;
     }
-} 
-.image-lazy{
+}
+.image-lazy {
     width: 100%;
 }
 .image-lazy img {
@@ -71,7 +88,7 @@ body {
 }
 .footer {
     -webkit-transform: translate3d(0, 0, 0);
-    transform : translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 .services {
     overflow: hidden;
@@ -85,7 +102,9 @@ video {
     display: block;
     position: relative;
     overflow: hidden;
-    iframe, img, video {
+    iframe,
+    img,
+    video {
         position: absolute;
         top: 0;
         left: 0;
@@ -98,7 +117,9 @@ video {
     display: block;
     position: relative;
     overflow: hidden;
-    iframe, img, video {
+    iframe,
+    img,
+    video {
         position: absolute;
         top: 0;
         left: 0;
@@ -109,22 +130,48 @@ video {
         margin: auto;
     }
 }
+.h3 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.2;
+    @media (max-width: 1700px) {
+        font-size: 30px;
+    }
+    @media (max-width: 1450px) {
+        font-size: 26px;
+    }
+    @media (max-width: 960px) {
+        font-size: 24px;
+    }
+    @media (max-width: 639px) {
+        font-size: clamp(18px, 18px + 10 * (100vw - 320px) / 320, 24px);
+    }
+}
 .h4 {
     font-size: 26px;
     font-weight: 600;
     line-height: 1.2;
+    @media (max-width: 1700px) {
+        font-size: 24px;
+    }
+    @media (max-width: 1450px) {
+        font-size: 22px;
+    }
+    @media (max-width: 960px) {
+        font-size: 20px;
+    }
     @media (max-width: 639px) {
-        font-size: clamp(16px, 16px + 10*(100vw - 320px) / 320, 26px);
+        font-size: clamp(16px, 16px + 10 * (100vw - 320px) / 320, 20px);
     }
 }
-h5, .page-txt {
+/* h5, .page-txt {
     font-size: 20px;
     font-weight: 500;
     line-height: 120%;
     @media (max-width: 639px) {
         font-size: clamp(16px, 16px + 4*(100vw - 320px) / 320, 20px);
     }
-}
+} */
 .card-anim {
     position: relative;
     z-index: 1;
@@ -144,15 +191,15 @@ h5, .page-txt {
         height: 100%;
         clip-path: inset(100% 0 0 0);
         background: #ffe457;
-        transition: .3s linear;
+        transition: 0.3s linear;
     }
 }
-.item-form {  
+.item-form {
     margin-bottom: 24px;
     [data-error] {
         font-size: 20px;
         font-weight: 500;
-        color: #D61616;
+        color: #d61616;
         margin-top: 5px;
         @media (max-width: 1450px) {
             font-size: 16px;
@@ -164,16 +211,20 @@ h5, .page-txt {
     [data-error]:empty {
         display: none;
     }
-    input,textarea {
-        color: #000000; 
+    input,
+    textarea {
+        color: #000000;
         width: 100%;
         padding: 10px 0;
-        border: none; 
+        border: none;
     }
-    input {      
+    input {
         border-bottom: 2px solid #000000;
     }
-    input,textarea, input::placeholder, textarea::placeholder {
+    input,
+    textarea,
+    input::placeholder,
+    textarea::placeholder {
         font-weight: 600;
         font-size: 30px;
         line-height: 130%;
@@ -182,11 +233,12 @@ h5, .page-txt {
             font-size: 26px;
         }
         @media (max-width: 639px) {
-            font-size: clamp(20px, 20px + (26 - 20)*((100vw - 320px) /(640 - 320)), 26px);
-        }   
+            font-size: clamp(20px, 20px + (26 - 20) * ((100vw - 320px) / (640 - 320)), 26px);
+        }
     }
-    input::placeholder, textarea::placeholder {
-        color: rgba(#000000, .4);  
+    input::placeholder,
+    textarea::placeholder {
+        color: rgba(#000000, 0.4);
     }
     &--password {
         position: relative;
@@ -198,7 +250,7 @@ h5, .page-txt {
         }
         &.show-password {
             .item-form__eye {
-                background-image: url(../img/icons/eye.svg)
+                background-image: url(../img/icons/eye.svg);
             }
         }
     }
@@ -212,14 +264,11 @@ h5, .page-txt {
         background: url(../img/icons/eye-slash.svg) center / contain no-repeat;
         visibility: hidden;
         opacity: 0;
-        transition: all .3s linear;
+        transition: all 0.3s linear;
     }
 }
 .section {
-    margin-bottom: 180px;
-    @media (max-width: 768px) {
-        margin-bottom: 120px;
-    }
+    margin-bottom: 120px;
     @media (max-width: 639px) {
         margin-bottom: 80px;
     }
@@ -247,4 +296,209 @@ h5, .page-txt {
     svg {
         pointer-events: none;
     }
+}
+.sec-border,
+.primary-block {
+    border: 3px solid #000;
+    border-radius: 40px;
+    @media (max-width: $bp4) {
+        padding: 40px 0;
+    }
+    @media (max-width: $bp5) {
+        padding: 30px 0;
+        border-radius: 20px;
+    }
+}
+.sec-border {
+    padding: 60px 0;
+    &--primary {
+        background: #ffe457;
+    }
+}
+.primary-block {
+    background: #ffe457;
+    padding: 120px 0;
+    position: relative;
+    z-index: 1;
+    @media (max-width: $bp2) {
+        padding: 60px 0;
+    }
+}
+.first-sec {
+    margin-top: 60px;
+}
+.page-content {
+    & > *:first-child {
+        margin-top: 0;
+    }
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+    ul {
+        margin: 0;
+        padding: 0 0 0 30px;
+        li {
+            list-style: disc;
+        }
+    }
+    h4,
+    h5,
+    p,
+    li {
+        font-size: 26px;
+        line-height: 1.2;
+        @media (max-width: 1700px) {
+            font-size: 24px;
+        }
+        @media (max-width: 1450px) {
+            font-size: 22px;
+        }
+        @media (max-width: 960px) {
+            font-size: 20px;
+        }
+        @media (max-width: 639px) {
+            font-size: clamp(16px, 16px + 10 * (100vw - 320px) / 320, 20px);
+        }
+    }
+    p,
+    li {
+        font-weight: 500;
+    }
+    p {
+        margin-bottom: 24px;
+    }
+    @media (max-width: $bp5) {
+        ul {
+            padding-left: 26px;
+        }
+    }
+}
+.btn {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1.18;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+    svg {
+        width: 33px;
+        height: 37px;
+        stroke-width: 2px;
+        stroke: black;
+        margin-left: 30px;
+        transform: rotate(45deg);
+    }
+    @media (max-width: $bp1) {
+        font-size: 30px;
+    }
+    @media (max-width: $bp2) {
+        font-size: 26px;
+        svg {
+            margin-left: 20px;
+        }
+    }
+    @media (max-width: $bp3) {
+        font-size: 24px;
+    }
+    @media (max-width: $bp4) {
+        svg {
+            width: 26px;
+            height: 29px;
+        }
+    }
+    @media (max-width: $bp5) {
+        font-size: clamp(18px, 18px + 10 * (100vw - 320px) / 320, 24px);
+        svg {
+            width: 23px;
+            height: 26px;
+        }
+    }
+}
+.link-btn {
+    &:hover span::before {
+        opacity: 1;
+    }
+    span {
+        position: relative;
+        &:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 3px;
+            background: #000;
+            opacity: 0;
+            transition: 0.3s;
+        }
+    }
+    @media (max-width: $bp5) {
+        span {
+            &::before {
+                height: 2px;
+                bottom: -2px;
+            }
+        }
+    }
+}
+.primary-btn {
+    padding: 23px 60px;
+    border-radius: 60px;
+    border: 3px solid black;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    svg {
+        transform: rotate(0);
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: inset(100% 0 0 0);
+        transition: 0.2s linear;
+        background: #ffe457;
+    }
+    &:hover {
+        &::before {
+            clip-path: inset(0 0 0 0);
+        }
+    }
+    &--yellow {
+        &::before {
+            clip-path: inset(0 0 0 0);
+        }
+        &:hover {
+            &::before {
+                clip-path: inset(100% 0 0 0);
+            }
+        }
+    }
+    @media (max-width: $bp5) {
+        padding: 19px;
+    }
+}
+.section-last {
+    padding: 120px 0 120px;
+    border: 3px solid #000;
+    border-top: none;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    background: white;
+    margin-top: -40px !important;
+}
+.page-wrap {
+    padding-top: 95px;
+    position: relative;
+    z-index: 1;
 }

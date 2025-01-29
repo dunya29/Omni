@@ -339,18 +339,3 @@
         }
     }
 }
-
-
-.marquee {
-    img {
-        height: 154px;
-        object-fit: contain;
-        @media (max-width: 1700px) {
-            height: 110px;
-            max-width: none;
-        }
-        @media (max-width: 639px) {
-            height: calc(54px + 46 * (100vw - 320px) / 320);
-        }
-    }
-}
