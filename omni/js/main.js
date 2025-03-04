@@ -408,7 +408,7 @@ function Marquee(selector, speed) {
 //1 class selector for marquee
 //2 marquee speed 0.2
 if (document.querySelector('.marquee')) {
-  window.addEventListener('load', Marquee('.marquee', 0.2));
+  window.addEventListener('load', Marquee('.marquee', 0.6));
 }
 
 // Show more project cards
